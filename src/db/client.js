@@ -1,5 +1,5 @@
 require('dotenv').config
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose');
 
 const connectionString = () => {
 
@@ -19,13 +19,9 @@ const connectionString = () => {
 
 const uri = connectionString()
 
-const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
+const clientDB = async () => {
+    await mongoose.connect(uri, { dbName: process.env.DB_NAME })
+}
 
-module.exports = client
+module.exports = clientDB
 
