@@ -1,7 +1,7 @@
-const client = require("./client");
+// const client = require("./client");
 
 
-const database = client.db('IndexDB');
-const usersCollection = database.collection('users');
+// const database = client.db('IndexDB');
+// const usersCollection = database.collection('users');
 
-module.exports = { database, usersCollection }
+// module.exports = { database, usersCollection }

@@ -1,10 +1,9 @@
 const express = require('express');
 const { applyMiddleware } = require('./middlewares/applyMiddleware');
-const connectDB = require('./db/connectDB');
 require('dotenv').config();
 const authenticationRoutes = require('./routes/authentication/index');
 const userRoutes = require('./routes/user/index');
-
+const connectDB = require("./db/client")
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -17,7 +16,7 @@ app.use(userRoutes)
 const main = async () => {
 
     // connecting to database
-    await connectDB()
+    await connectDB
 
 
     app.listen(port, () => {
