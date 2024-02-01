@@ -3,9 +3,12 @@ const { applyMiddleware } = require('./middlewares/applyMiddleware');
 require('dotenv').config();
 const authenticationRoutes = require('./routes/authentication/index');
 const userRoutes = require('./routes/user/index');
+const doctorRequestRoutes=require('./routes/DoctorRequest/index');
+const doctorRoutes=require('./routes/Doctor/index');
 const connectDB = require("./db/client")
 const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
+const commentRoutes = require('./routes/comments/index')
 
 
 const app = express()
@@ -15,7 +18,14 @@ applyMiddleware(app);
 
 app.use(authenticationRoutes)
 app.use(userRoutes)
+
+app.use(doctorRequestRoutes)
+app.use(doctorRoutes)
+
 app.use(paymentRoutes)
+
+app.use(commentRoutes)
+
 
 const main = async () => {
 
