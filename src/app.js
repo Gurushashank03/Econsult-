@@ -5,6 +5,8 @@ const authenticationRoutes = require('./routes/authentication/index');
 const userRoutes = require('./routes/user/index');
 const connectDB = require("./db/client")
 const mongoose = require('mongoose');
+const paymentRoutes = require('./routes/payment/index');
+
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -13,6 +15,7 @@ applyMiddleware(app);
 
 app.use(authenticationRoutes)
 app.use(userRoutes)
+app.use(paymentRoutes)
 
 const main = async () => {
 
