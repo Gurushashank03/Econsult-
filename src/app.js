@@ -34,7 +34,7 @@ const main = async () => {
     await connectDB();
     console.log("Connected to database!",mongoose.connection.name);
     app.listen(port, () => {
-        console.log(`Index is running on port: ${port}`)
+        console.log(`Server is running on port: ${port}`)
     })
 
 }
@@ -43,7 +43,7 @@ main();
 
 
 app.get('/health', (req, res) => {
-    res.send('Index is running.')
+    res.send('Server is running.')
 })
 
 app.all('*', (req, res, next) => {
