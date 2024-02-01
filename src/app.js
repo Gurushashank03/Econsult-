@@ -7,6 +7,8 @@ const doctorRequestRoutes=require('./routes/DoctorRequest/index');
 const doctorRoutes=require('./routes/Doctor/index');
 const connectDB = require("./db/client")
 const mongoose = require('mongoose');
+const paymentRoutes = require('./routes/payment/index');
+
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -15,8 +17,12 @@ applyMiddleware(app);
 
 app.use(authenticationRoutes)
 app.use(userRoutes)
+<<<<<<< HEAD
 app.use(doctorRequestRoutes)
 app.use(doctorRoutes)
+=======
+app.use(paymentRoutes)
+>>>>>>> 09bef866640558aeb34200d24738e73166e4e24f
 
 const main = async () => {
 
