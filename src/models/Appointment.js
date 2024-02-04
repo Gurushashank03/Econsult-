@@ -25,6 +25,9 @@ const appointmentSchema = new Schema({
         type: Number,
         required: true
     },
+    transactionId:{
+        type: String,
+    },
     paidStatus: Boolean,
   });
   
