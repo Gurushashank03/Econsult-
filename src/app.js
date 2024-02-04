@@ -9,6 +9,7 @@ const connectDB = require("./db/client")
 const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
+const appointmentRoutes = require('./routes/appointment/index')
 
 
 const app = express()
@@ -25,6 +26,7 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 
 app.use(commentRoutes)
+app.use(appointmentRoutes)
 
 
 const main = async () => {
