@@ -8,6 +8,8 @@ const doctorRoutes=require('./routes/Doctor/index');
 const connectDB = require("./db/client")
 const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
+const commentRoutes = require('./routes/comments/index')
+const appointmentRoutes = require('./routes/appointment/index')
 
 
 const app = express()
@@ -28,7 +30,7 @@ const main = async () => {
     await connectDB();
     console.log("Connected to database!",mongoose.connection.name);
     app.listen(port, () => {
-        console.log(`Index is running on port: ${port}`)
+        console.log(`Server is running on port: ${port}`)
     })
 
 }
@@ -37,7 +39,7 @@ main();
 
 
 app.get('/health', (req, res) => {
-    res.send('Index is running.')
+    res.send('Server is running.')
 })
 
 app.all('*', (req, res, next) => {
