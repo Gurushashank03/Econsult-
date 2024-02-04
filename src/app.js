@@ -17,12 +17,9 @@ applyMiddleware(app);
 
 app.use(authenticationRoutes)
 app.use(userRoutes)
-<<<<<<< HEAD
 app.use(doctorRequestRoutes)
 app.use(doctorRoutes)
-=======
 app.use(paymentRoutes)
->>>>>>> 09bef866640558aeb34200d24738e73166e4e24f
 
 const main = async () => {
 
