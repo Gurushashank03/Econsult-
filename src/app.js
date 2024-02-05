@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
+const tipsRoutes = require('./routes/tip/index')
 
 
 const app = express()
@@ -27,6 +28,7 @@ app.use(paymentRoutes)
 
 app.use(commentRoutes)
 app.use(appointmentRoutes)
+app.use(tipsRoutes)
 
 
 const main = async () => {
