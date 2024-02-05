@@ -58,11 +58,13 @@ const payment = async (req, res) => {
             appointmentDate: cart.appointmentDate,
             appointmentTime: cart.appointmentTime,
             treatment: cart.treatment,
+            appointmentId: cart.appointmentId,
             paidStatus: false, 
         });
         //console.log(newPayment)
         console.log("Redirecting to: ", GatewayPageURL);
         const data = await Payment.create(newPayment)
+        // res.send({ url: GatewayPageURL, appointmentId: newPayment.appointmentId });
       });
 }
 

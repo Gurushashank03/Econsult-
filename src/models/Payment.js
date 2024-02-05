@@ -41,6 +41,10 @@ const paymentSchema = new Schema({
         type: String,
         required: true
     },
+    appointmentId:{
+        type: String,
+        required: true
+    },
     paidStatus: Boolean,
   });
   
