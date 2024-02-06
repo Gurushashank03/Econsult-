@@ -38,6 +38,10 @@ const doctorRequestSchema = new Schema({
         type: String,
         required: true
       },
+      role: {
+        type: String,
+        required: true,
+      },
   },{ versionKey: false })
 
 const DoctorsRequest = model('DoctorsRequest', doctorRequestSchema,'doctorRequest');
