@@ -20,16 +20,11 @@ applyMiddleware(app);
 
 app.use(authenticationRoutes)
 app.use(userRoutes)
-
 app.use(doctorRequestRoutes)
 app.use(doctorRoutes)
-
 app.use(paymentRoutes)
-
-app.use(commentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
-
 
 const main = async () => {
 
