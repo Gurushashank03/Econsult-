@@ -22,6 +22,7 @@ app.use(userRoutes)
 app.use(doctorRequestRoutes)
 app.use(doctorRoutes)
 app.use(paymentRoutes)
+app.use(appointmentRoutes)
 
 const main = async () => {
 

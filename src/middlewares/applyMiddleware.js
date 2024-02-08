@@ -6,9 +6,11 @@ const { LOCAL_CLIENT, NORMAL_CLIENT } = require('../config/default')
 
 const applyMiddleware = (app) => {
     app.use(cors({
-        origin: '*',
-        credentials: true,
-        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+        origin: [
+            LOCAL_CLIENT,
+            NORMAL_CLIENT
+        ],
+        credentials: true
     }))
 
     app.use(express.json())
