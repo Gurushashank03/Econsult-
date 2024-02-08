@@ -1,30 +1,15 @@
-// const http=require("http");
-// const cors = require("cors");
-// const socketIO = require("socket.io");
-// const app = express()
-// const users=[{}];
+const express = require('express');
+const { Router } = require('express');
+const { Server } = require('socket.io');
+const http = require("http");
 
-// app.use(cors());
-// const server=http.createServer(app);
+const router = express.Router(); 
 
-// const io=socketIO(server);
+const server = http.createServer();
+const io = new Server(server);
 
-// io.on("connection",(socket)=>{
-//     console.log("New Connection");
+io.on('connection', (socket) => {
+  console.log(`User Connected: ${socket.id}`);
+});
 
-//     socket.on('joined',({user})=>{
-//           users[socket.id]=user;
-//           console.log(`${user} has joined `);
-//           socket.broadcast.emit('userJoined',{user:"Admin",message:` ${users[socket.id]} has joined`});
-//           socket.emit('welcome',{user:"Admin",message:`Welcome to the chat,${users[socket.id]} `})
-//     })
-
-//     socket.on('message',({message,id})=>{
-//         io.emit('sendMessage',{user:users[id],message,id});
-//     })
-
-//     socket.on('disconnected',()=>{
-//           socket.broadcast.emit('leave',{user:"Admin",message:`${users[socket.id]}  has left`});
-//         console.log(`user left`);
-//     })
-// });
+module.exports = router;
