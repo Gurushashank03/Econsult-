@@ -4,5 +4,5 @@ const getDoctorsCategory = async (req, res) => {
     const data = await DoctorsCategory.find();
     res.send(data)
 }
-
+ 
 module.exports = { getDoctorsCategory };
