@@ -42,6 +42,9 @@ const doctorSchema = new Schema({
         type: String,
         required: true,
       },
+      blood_group: {
+        type: String,
+      },
   },{ versionKey: false })
 
 const Doctors = model('Doctors', doctorSchema,'doctors');
