@@ -10,7 +10,9 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
-const tipsRoutes = require('./routes/tip/index')
+const tipsRoutes = require('./routes/tip/index');
+const clientLink = require('./config/clientLink');
+const serverLink = require('./config/serverLink');
 
 
 const app = express()
@@ -34,6 +36,8 @@ const main = async () => {
     console.log("Connected to database!",mongoose.connection.name);
     app.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
+        console.log(clientLink)
+        console.log(serverLink)
     })
 
 }
