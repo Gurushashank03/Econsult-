@@ -16,6 +16,7 @@ const payment = async (req, res) => {
     total_amount: cart?.price,
     currency: "BDT",
     tran_id: tran_id,
+    // success_url: `http://localhost:5000/payment/success/${tran_id}`,
     success_url: `${serverLink}/payment/success/${tran_id}`,
     fail_url: `${serverLink}/payment/fail/${tran_id}`,
     cancel_url: `${serverLink}/payment/cancel/${tran_id}`,

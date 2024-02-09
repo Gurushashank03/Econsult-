@@ -36,7 +36,11 @@ const bookAppointmentSchema = new Schema({
     payment:{
         type: Number,
         required: true
-    }
+    },
+    transactionId:{
+        type: String,
+    },
+    paidStatus: Boolean,
   });
   
 const bookAppointment = model('bookAppointment', bookAppointmentSchema, 'book_Appointment');

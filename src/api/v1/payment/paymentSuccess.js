@@ -1,5 +1,6 @@
 const clientLink = require("../../../config/clientLink");
-const Appointment = require("../../../models/Appointment");
+// const Appointment = require("../../../models/Appointment");
+const bookAppointment = require("../../../models/BookAppointment");
 const Payment = require("../../../models/Payment");
 
 const paymentSuccess = async (req, res) => {
@@ -15,7 +16,7 @@ const paymentSuccess = async (req, res) => {
   console.log("Update Result:", result);
 
   if (result.modifiedCount > 0) {
-    const appointmentResult = await Appointment.updateOne(
+    const appointmentResult = await bookAppointment.updateOne(
       { _id: appointmentId },
       {
         $set: {
@@ -26,8 +27,9 @@ const paymentSuccess = async (req, res) => {
     );
 
     // console.log("Appointment Update Result:", appointmentResult);
-
+    
     res.redirect(`${clientLink}/dashboard/payment/success/${tranId}`);
+    // res.redirect(`http://localhost:5173/dashboard/payment/success/${tranId}`);
   }
 };
 

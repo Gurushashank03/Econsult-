@@ -10,10 +10,12 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
+
 const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
 const cors = require("cors");
+
 
 const port = process.env.PORT || 5000
 const app = express()
@@ -38,6 +40,8 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
+        console.log(clientLink)
+        console.log(serverLink)
     })
 
 }
@@ -48,7 +52,7 @@ const server = http.createServer(app);
 const io = new Server(server,
     {
         cors: {
-            origin: "http://localhost:5173",
+            origin: ["http://localhost:5173", "https://virtual-doc-site.web.app"],
             methods: ["GET", "POST"],
             credentials: true,
         },

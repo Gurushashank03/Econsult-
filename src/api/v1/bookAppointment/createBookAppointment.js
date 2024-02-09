@@ -1,6 +1,5 @@
 const bookAppointment = require("../../../models/BookAppointment");
 
-
 // register the user details inside database
 const createBookAppointment = async (req, res) => {
     const appointmentData = req.body
@@ -12,7 +11,7 @@ const createBookAppointment = async (req, res) => {
      }
     const data = await bookAppointment.create(appointmentData)
     console.log('response send',data);
-    res.send(data)
+    res.send(data._id)
 }
 
 module.exports = { createBookAppointment };
