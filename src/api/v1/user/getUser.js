@@ -3,7 +3,8 @@ const User = require("../../../models/Users");
 
 
 const getUsers = async (req, res) => {
-    const data = await User.find();
+    const query = { role: "user"}
+    const data = await User.find(query);
     res.send(data)
 }
 
