@@ -15,6 +15,8 @@ const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
 const cors = require("cors");
+const clientLink = require('./config/clientLink');
+const serverLink = require('./config/serverLink');
 
 
 const port = process.env.PORT || 5000
@@ -40,8 +42,8 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
-        console.log(clientLink)
-        console.log(serverLink)
+        // console.log(clientLink)
+        // console.log(serverLink)
     })
 
 }
