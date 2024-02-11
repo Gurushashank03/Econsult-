@@ -24,7 +24,6 @@ const app = express()
 
 
 
-
 applyMiddleware(app);
 app.use(cors());
 app.use(authenticationRoutes)
@@ -34,6 +33,7 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
+app.use(commentRoutes)
 
 const main = async () => {
     // connecting to database
@@ -42,8 +42,6 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
-        // console.log(clientLink)
-        // console.log(serverLink)
     })
 
 }
@@ -54,7 +52,7 @@ const server = http.createServer(app);
 const io = new Server(server,
     {
         cors: {
-            origin: ["http://localhost:5173", "https://virtual-doc-site.web.app"],
+            origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
             methods: ["GET", "POST"],
             credentials: true,
         },
