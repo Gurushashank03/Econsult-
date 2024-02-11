@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
-
+const cookieParser = require('cookie-parser')
 const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
@@ -24,8 +24,13 @@ const app = express()
 
 
 
+app.use(express.json())
+app.use(cookieParser())
 applyMiddleware(app);
-app.use(cors());
+app.use(cors({
+    origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
+    credentials: true,
+}));
 app.use(authenticationRoutes)
 app.use(userRoutes)
 app.use(doctorRequestRoutes)
