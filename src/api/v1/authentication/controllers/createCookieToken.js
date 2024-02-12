@@ -9,7 +9,7 @@ const createCookieToken = async (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: 'none'
-    }).send({ success: token })
+    }).send({ token: token })
 };
 
 module.exports = createCookieToken;
