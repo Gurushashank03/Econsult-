@@ -2,7 +2,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 const verifyToken = (req, res, next) => {
-    const token = req?.cookies?.token
+    const token = req?.headers?.token
 
     if (!token) {
         return res.status(401).send({ message: 'unauthorized access' })
