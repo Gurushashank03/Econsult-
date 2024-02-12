@@ -54,10 +54,10 @@ main();
 
 
 const server = http.createServer(app);
-const io = new Server(server,
+const io = require('socket.io')(server,
     {
         cors: {
-            origin: "https://virtual-doc-site.web.app" | "http://localhost:5173" ,
+            origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
             methods: ["GET", "POST"],
             credentials: true,
         },
