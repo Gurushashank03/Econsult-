@@ -57,7 +57,7 @@ const server = http.createServer(app);
 const io =new Server(server,
     {
         cors: {
-            origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
+            origin: ["*"],
             methods: ["GET", "POST"],
             credentials: true,
             
