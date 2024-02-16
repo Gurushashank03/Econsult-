@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
-
+const prescriptionRoutes=require('./routes/prescription/index');
 const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
@@ -32,6 +32,7 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
+app.use(prescriptionRoutes)
 
 const main = async () => {
     // connecting to database
@@ -40,8 +41,8 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
-        console.log(clientLink)
-        console.log(serverLink)
+        //console.log(clientLink)
+        //console.log(serverLink)
     })
 
 }
