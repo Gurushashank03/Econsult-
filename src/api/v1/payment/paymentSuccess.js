@@ -28,7 +28,7 @@ const paymentSuccess = async (req, res) => {
 
     // console.log("Appointment Update Result:", appointmentResult);
     
-    res.redirect(`${clientLink}/dashboard/payment/success/${tranId}`);
+    res.redirect(`${clientLink}/payment/success/${tranId}`);
     // res.redirect(`http://localhost:5173/dashboard/payment/success/${tranId}`);
   }
 };

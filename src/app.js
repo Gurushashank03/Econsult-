@@ -10,11 +10,17 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
+<<<<<<< HEAD
 const prescriptionRoutes=require('./routes/prescription/index');
+=======
+const cookieParser = require('cookie-parser')
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
 const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
 const cors = require("cors");
+const clientLink = require('./config/clientLink');
+const serverLink = require('./config/serverLink');
 
 
 const port = process.env.PORT || 5000
@@ -22,9 +28,13 @@ const app = express()
 
 
 
-
+app.use(express.json())
+app.use(cookieParser())
 applyMiddleware(app);
-app.use(cors());
+app.use(cors({
+    origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
+    credentials: true,
+}));
 app.use(authenticationRoutes)
 app.use(userRoutes)
 app.use(doctorRequestRoutes)
@@ -32,7 +42,11 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
+<<<<<<< HEAD
 app.use(prescriptionRoutes)
+=======
+app.use(commentRoutes)
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
 
 const main = async () => {
     // connecting to database
@@ -41,8 +55,11 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
+<<<<<<< HEAD
         //console.log(clientLink)
         //console.log(serverLink)
+=======
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
     })
 
 }
@@ -50,13 +67,15 @@ main();
 
 
 const server = http.createServer(app);
-const io = new Server(server,
+const io =new Server(server,
     {
         cors: {
-            origin: ["http://localhost:5173", "https://virtual-doc-site.web.app"],
+            origin: ["*",clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
             methods: ["GET", "POST"],
             credentials: true,
+            
         },
+        allowEIO3: true
     }
 );
 
