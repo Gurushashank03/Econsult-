@@ -6,7 +6,7 @@ const SSLCommerzPayment = require("sslcommerz-lts");
 const serverLink = require("../../../config/serverLink");
 const store_id = process.env.Store_id;
 const store_passwd = process.env.Store_passwd;
-const is_live = false;
+const is_live = true;
 
 const payment = async (req, res) => {
   const cart = req.body
@@ -20,7 +20,7 @@ const payment = async (req, res) => {
     success_url: `${serverLink}/payment/success/${tran_id}`,
     fail_url: `${serverLink}/payment/fail/${tran_id}`,
     cancel_url: `${serverLink}/payment/cancel/${tran_id}`,
-    ipn_url: "${serverLink}/ipn",
+    ipn_url: `${serverLink}/ipn`,
     shipping_method: "Courier",
     product_name: "medicine",
     product_category: "medicine",
