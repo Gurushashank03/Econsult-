@@ -10,7 +10,11 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
+<<<<<<< HEAD
+const prescriptionRoutes=require('./routes/prescription/index');
+=======
 const cookieParser = require('cookie-parser')
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
 const tipsRoutes = require('./routes/tip/index')
 const { Server } = require('socket.io');
 const http = require("http");
@@ -38,7 +42,11 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
+<<<<<<< HEAD
+app.use(prescriptionRoutes)
+=======
 app.use(commentRoutes)
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
 
 const main = async () => {
     // connecting to database
@@ -47,6 +55,11 @@ const main = async () => {
     console.log("Connected to database!", mongoose.connection.name);
     server.listen(port, () => {
         console.log(`Server is running on port: ${port}`)
+<<<<<<< HEAD
+        //console.log(clientLink)
+        //console.log(serverLink)
+=======
+>>>>>>> c0c2baf46d815e6cc56187f74ff4828065fbfabb
     })
 
 }
