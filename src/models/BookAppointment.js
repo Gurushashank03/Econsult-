@@ -5,7 +5,7 @@ const bookAppointmentSchema = new Schema({
         type: String,
         required: true
     },
-    doctor_id:{
+    doctor_email:{
         type: String,
         required: true
     },
