@@ -1,4 +1,3 @@
-const Appointment = require("../../../models/Appointment")
 const bookAppointment = require("../../../models/BookAppointment")
 
 const getAppointment = async(req,res)=>{
