@@ -6,4 +6,5 @@ const config = {
     NORMAL_CLIENT: process.env.NORMAL_CLIENT
 }
 
+
 module.exports = config;

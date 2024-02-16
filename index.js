@@ -6,7 +6,7 @@
 
 // // middlewares
 // app.use(cors({
-//     origin: ['http://localhost:5173', 'http://localhost:5174']
+//     origin: ['{localClient}', 'http://localhost:5174']
 // }))
 
 // app.use(express.json())

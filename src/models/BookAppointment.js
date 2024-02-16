@@ -1,53 +1,48 @@
 const {Schema, model} = require("mongoose");
 
-const paymentSchema = new Schema({
-    name:{
+const bookAppointmentSchema = new Schema({
+    health_category:{
         type: String,
         required: true
     },
-    email:{
+    doctor_id:{
         type: String,
         required: true
     },
-    address:{
+    timing_slot:{
         type: String,
         required: true
     },
-    phone:{
+    date:{
         type: String,
         required: true
     },
-    price:{
+    patient_email:{
+        type: String,
+        required: true
+    },
+    patient_name:{
+        type: String,
+        required: true
+    },
+    patient_age:{
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    payment:{
         type: Number,
         required: true
     },
     transactionId:{
         type: String,
-        required: true
-    },
-    billPayDate:{
-        type: Date,
-        required: true
-    },
-    appointmentDate:{
-        type: String,
-        required: true
-    },
-    appointmentTime:{
-        type: String,
-        required: true
-    },
-    treatment:{
-        type: String,
-        required: true
-    },
-    appointmentId:{
-        type: String,
-        required: true
     },
     paidStatus: Boolean,
   });
   
-const Payment = model('Payment', paymentSchema, 'payment');
+const bookAppointment = model('bookAppointment', bookAppointmentSchema, 'book_Appointment');
 
-module.exports = Payment
+module.exports = bookAppointment
