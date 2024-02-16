@@ -7,7 +7,7 @@ const createCookieToken = async (req, res, next) => {
 
     res.cookie('token', token, {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: 'none'
     }).send({ token: token })
 };
