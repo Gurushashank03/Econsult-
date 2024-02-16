@@ -8,7 +8,7 @@ const getDoctorAppointment = async(req,res)=>{
     console.log(query)
     const data = await Doctors.findOne(query)
     console.log(data)
-    const id = data._id
+    const id = data?._id
     console.log(id)
     const appointmentQuery={_id:new ObjectId(id)};
     const appointments = await bookAppointment.find(appointmentQuery)
