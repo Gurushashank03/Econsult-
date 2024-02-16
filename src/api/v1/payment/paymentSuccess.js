@@ -11,7 +11,7 @@ const paymentSuccess = async (req, res) => {
         console.log("Update Result:", result);
 
         if (result.modifiedCount > 0) {
-            res.redirect(`http://localhost:5173/dashboard/payment/success/${tranId}`);
+            res.redirect(`https://virtual-doc-site.web.app/dashboard/payment/success/${tranId}`);
         }
 };
 
