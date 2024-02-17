@@ -1,9 +1,9 @@
-const Appointment = require("../../../models/Appointment")
+const bookAppointment = require("../../../models/BookAppointment")
 
 const getAppointment = async(req,res)=>{
     const email = req.params.email
-    const query = {email: email}
-    const data = await Appointment.find(query)
+    const query = {patient_email: email, paidStatus: true}
+    const data = await bookAppointment.find(query)
     res.send(data)
 }
 

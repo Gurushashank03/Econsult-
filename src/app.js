@@ -10,9 +10,12 @@ const mongoose = require('mongoose');
 const paymentRoutes = require('./routes/payment/index');
 const commentRoutes = require('./routes/comments/index')
 const appointmentRoutes = require('./routes/appointment/index')
-
+const prescriptionRoutes=require('./routes/prescription/index');
+const cookieParser = require('cookie-parser')
 const tipsRoutes = require('./routes/tip/index')
 const cors = require("cors");
+const clientLink = require('./config/clientLink');
+// const serverLink = require('./config/serverLink');
 
 
 const port = process.env.PORT || 5000
@@ -20,9 +23,13 @@ const app = express()
 
 
 
-
+app.use(express.json())
+app.use(cookieParser())
 applyMiddleware(app);
-app.use(cors());
+app.use(cors({
+    origin: [clientLink,"http://localhost:5173", "https://virtual-doc-site.web.app"],
+    credentials: true,
+}));
 app.use(authenticationRoutes)
 app.use(userRoutes)
 app.use(doctorRequestRoutes)
@@ -30,6 +37,8 @@ app.use(doctorRoutes)
 app.use(paymentRoutes)
 app.use(appointmentRoutes)
 app.use(tipsRoutes)
+app.use(prescriptionRoutes)
+app.use(commentRoutes)
 
 const main = async () => {
     // connecting to database
@@ -42,7 +51,6 @@ const main = async () => {
 
 }
 main();
-
 
 app.get('/health', (req, res) => {
     res.send('Server is running.')
