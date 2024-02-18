@@ -28,7 +28,7 @@ const paymentSuccess = async (req, res) => {
 
     // console.log("Appointment Update Result:", appointmentResult);
     
-    res.redirect(`${clientLink}/payment/success/${tranId}`);
+    res.redirect(`https://virtual-doc-site.web.app/payment/success/${tranId}`);
     // res.redirect(`http://localhost:5173/dashboard/payment/success/${tranId}`);
   }
 };
