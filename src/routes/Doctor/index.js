@@ -7,8 +7,6 @@ const { updateDoctor } = require('../../api/v1/doctors/updateDoctor')
 const router = express.Router()
 
 router.post('/doctors/createDoctors',createDoctors)
-router.get("/doctors/:email" , doctorRole)
-router.get("/doctor/:email" , getIndividualDoctor)
-router.put('/doctor/:email',updateDoctor)
+
 
 module.exports = router
