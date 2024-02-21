@@ -21,8 +21,6 @@ const clientLink = require('./config/clientLink');
 const port = process.env.PORT || 5000
 const app = express()
 
-
-
 app.use(express.json())
 app.use(cookieParser())
 applyMiddleware(app);

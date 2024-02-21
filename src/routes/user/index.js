@@ -9,6 +9,7 @@ const verifyToken = require('../../middlewares/verifyToken')
 const router = express.Router()
 
 router.post('/users/createUser',createUser)
+// router.get('/users',  getUsers)
 router.get('/users',verifyToken,  getUsers)
 router.get('/specificUser/:email', getUser)
 router.get('/users/:email',getIndividualUsers)
