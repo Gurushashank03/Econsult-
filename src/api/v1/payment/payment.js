@@ -6,12 +6,10 @@ const SSLCommerzPayment = require("sslcommerz-lts");
 const serverLink = require("../../../config/serverLink");
 const store_id = process.env.Store_id;
 const store_passwd = process.env.Store_passwd;
-const is_live = true;
+const is_live = false;
 
 const payment = async (req, res) => {
-  const cart = req.body
-  // console.log(cart)
-  // console.log(tran_id)
+  const cart = req.body  
   const data = {
     total_amount: cart?.price,
     currency: "BDT",
