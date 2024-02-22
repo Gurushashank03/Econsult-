@@ -13,7 +13,7 @@ const paymentSuccess = async (req, res) => {
     { $set: { paidStatus: true } }
   );
 
-  console.log("Update Result:", result);
+  // console.log("Update Result:", result);
 
   if (result.modifiedCount > 0) {
     const appointmentResult = await bookAppointment.updateOne(

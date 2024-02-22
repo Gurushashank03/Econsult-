@@ -10,7 +10,6 @@ const io = new Server(server, {
             origin: ["*","http://localhost:5173", "https://virtual-doc-site.web.app"],
             methods: ["GET", "POST"],
             credentials: true,
-            
         },
         allowEIO3: true
 });

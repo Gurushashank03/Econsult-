@@ -3,14 +3,16 @@ const { ObjectId } = require('mongoose').Types;
 
 const deleteDoctor = async(req, res)=>{
     const id=req.params.id;
-    console.log(id)
+    // console.log(id)
     const query = { _id: new ObjectId(id) };
-    const result = await Doctors.deleteOne(query);
-    res.send(result);
+  const result = await Doctors.deleteOne(query);
+  res.send(result);
     if (result.deletedCount === 1) {
-      console.log("Successfully deleted one document.");
+      res.send(result);
+      // console.log("Successfully deleted one document.");
     } else {
-      console.log("No documents matched the query. Deleted 0 documents.");
+      res.status(404).send({message: 'Error'})
+      // console.log("No documents matched the query. Deleted 0 documents.");
     }
 }
 
