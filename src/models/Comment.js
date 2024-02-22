@@ -10,7 +10,7 @@ const commentSchema = new Schema({
         required: true
     },
     comment_id:{
-        type: Number,
+        type: String,
         required: true
     },
     email:{
