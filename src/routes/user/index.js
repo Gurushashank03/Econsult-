@@ -11,9 +11,9 @@ const router = express.Router()
 router.post('/users/createUser',createUser)
 // router.get('/users',  getUsers)
 router.get('/users',verifyToken,  getUsers)
-router.get('/specificUser/:email', getUser)
-router.get('/users/:email',getIndividualUsers)
-router.put('/users/:id',updateIndividualUsers)
-router.get("/user/:email", adminRole)
+router.get('/specificUser/:email',verifyToken, getUser)
+router.get('/users/:email',verifyToken, getIndividualUsers)
+router.put('/users/:id', updateIndividualUsers)
+router.get("/user/:email", verifyToken, adminRole)
 
 module.exports = router
