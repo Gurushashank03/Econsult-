@@ -15,6 +15,8 @@ const cookieParser = require('cookie-parser')
 const tipsRoutes = require('./routes/tip/index')
 const cors = require("cors");
 const clientLink = require('./config/clientLink');
+const http = require('http')
+const { Server } = require('socket.io');
 // const serverLink = require('./config/serverLink');
 
 
@@ -48,6 +50,21 @@ const main = async () => {
     })
 
 }
+
+// const server = http.createServer();
+// const io = new Server(server, {
+//   cors: {
+//             origin: ["*","http://localhost:5173", "https://virtual-doc-site.web.app"],
+//             methods: ["GET", "POST"],
+//             credentials: true,
+//         },
+//         allowEIO3: true
+// });
+
+// io.on('connection', (socket) => {
+//   console.log(`User Connected: ${socket.id}`);
+// });
+
 main();
 
 app.get('/health', (req, res) => {
