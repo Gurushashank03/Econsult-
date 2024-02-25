@@ -10,7 +10,7 @@ const getUsers = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
-    const query = { email: req.params.email }
+    const query = { email: req?.params?.email }
     // console.log(query)
     const data = await User.find(query);
     res.send(data)
