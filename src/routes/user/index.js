@@ -6,6 +6,7 @@ const { getIndividualUsers } = require('../../api/v1/user/getIndividualUser')
 const { updateIndividualUsers } = require('../../api/v1/user/updateIndividualUser')
 const { adminRole } = require('../../api/v1/user/adminRole')
 const verifyToken = require('../../middlewares/verifyToken')
+const { getUserStats } = require('../../api/v1/user/getUserStats')
 const router = express.Router()
 
 router.post('/users/createUser',createUser)
@@ -15,5 +16,6 @@ router.get('/specificUser/:email',verifyToken, getUser)
 router.get('/users/:email',verifyToken, getIndividualUsers)
 router.put('/users/:id', updateIndividualUsers)
 router.get("/user/:email", verifyToken, adminRole)
+router.get("/user/stats/:email", getUserStats)
 
 module.exports = router

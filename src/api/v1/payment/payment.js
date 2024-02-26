@@ -14,7 +14,7 @@ const payment = async (req, res) => {
     total_amount: cart?.price,
     currency: "BDT",
     tran_id: tran_id,
-    // success_url: `http://localhost:5000/payment/success/${tran_id}`,
+    //success_url: `http://localhost:5000/payment/success/${tran_id}`,
     success_url: `https://virtual-doc-backend.vercel.app/payment/success/${tran_id}`,
     fail_url: `https://virtual-doc-backend.vercel.app/payment/fail/${tran_id}`,
     cancel_url: `https://virtual-doc-backend.vercel.app/payment/cancel/${tran_id}`,
