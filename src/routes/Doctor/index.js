@@ -8,6 +8,7 @@ const { getDoctors } = require('../../api/v1/doctors/getDoctors')
 const { getDoctorsCategory } = require('../../api/v1/doctors/getDoctorsCategory')
 const { getDoctorAppointment } = require('../../api/v1/appointment/getDoctorAppointment')
 const { deleteDoctor } = require('../../api/v1/doctors/deleteDoctor')
+const { getDoctorStats } = require('../../api/v1/doctors/getDoctorStats')
 const router = express.Router()
 
 router.get('/doctors',getDoctors)
@@ -20,5 +21,6 @@ router.get("/doctorsHealthCategory" , getDoctorsCategory)
 router.put('/doctor/:email',updateDoctor)
 router.get('/doctorAppointment/:email',getDoctorAppointment)
 router.delete("/doctor/:id", deleteDoctor)
+router.get('/doctor/stats/:email', getDoctorStats)
 
 module.exports = router
